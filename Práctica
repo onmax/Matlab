@@ -1,0 +1,26 @@
+clear all
+p=[1 0 0 1];
+q=polyder(p);
+r=roots(p);
+intervalo=-2:0.01:2;
+hold on
+z0=-2+4*rand(1,1) + -2+4*rand(1,1)*1i;
+z=z0;
+plot(z,'k*')
+for n=1:100
+    if (z - r(1))<=(1/3)
+       plot(z,'r*') 
+    if (z - r(2))<=(1/3)
+        plot(z,'b*')
+    if (z - r(3))<=(1/3)
+        plot(z,'g*')
+    
+    z=z-polyval(p,z)/polyval(q,z);
+    end
+    end
+    end
+end
+hold off
+
+
+
